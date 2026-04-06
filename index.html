@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Future Work Institute</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121933;
+      --panel-2: #182245;
+      --text: #eef2ff;
+      --muted: #a8b3cf;
+      --line: rgba(255,255,255,0.08);
+      --accent: #7c9cff;
+      --accent-2: #67e8f9;
+      --gold: #f5c56b;
+      --max: 1180px;
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(124,156,255,0.18), transparent 30%),
+        linear-gradient(180deg, #0a0f1f 0%, #0b1020 45%, #0e1530 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(11,16,32,0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08111f;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card, .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+    }
+
+    .hero-copy {
+      padding: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(124,156,255,0.12);
+      border: 1px solid rgba(124,156,255,0.26);
+      color: #dce5ff;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 { margin: 0 0 14px; line-height: 1.08; }
+    h1 { font-size: clamp(2.5rem, 5vw, 4.8rem); }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.7rem); }
+    h3 { font-size: 1.15rem; }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--accent), #9b8cff);
+      color: white;
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hero-side {
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .stat-box {
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .grid-3, .grid-5, .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      padding: 22px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+      border: 1px solid var(--line);
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(103,232,249,0.1);
+      color: #b5f4ff;
+      border: 1px solid rgba(103,232,249,0.24);
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+    }
+
+    .operator-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+    }
+
+    .operator-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -30px -30px auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(124,156,255,0.24), transparent 70%);
+      pointer-events: none;
+    }
+
+    .operator-card ul,
+    .path-card ul { padding-left: 18px; margin: 10px 0 0; }
+
+    .ranking {
+      display: grid;
+      gap: 14px;
+    }
+
+    .rank-row {
+      display: grid;
+      grid-template-columns: 54px 1.2fr 1fr 120px;
+      gap: 14px;
+      align-items: center;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+    }
+
+    .rank-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      background: rgba(245,197,107,0.14);
+      color: var(--gold);
+      border: 1px solid rgba(245,197,107,0.28);
+    }
+
+    .rank-score {
+      text-align: right;
+      font-weight: 700;
+      color: #dce5ff;
+    }
+
+    .footer {
+      padding: 44px 0 60px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1100px) {
+      .grid-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-grid, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner { flex-direction: column; align-items: flex-start; }
+      .hero-copy { padding: 28px; }
+      .rank-row {
+        grid-template-columns: 44px 1fr;
+      }
+      .rank-row > :nth-child(3), .rank-row > :nth-child(4) {
+        grid-column: 2;
+      }
+      .grid-5 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-badge">FW</span>
+        <span>Future Work Institute</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#operators">Operators</a>
+        <a href="#academy">Academy</a>
+        <a href="#ranking">Ranking</a>
+        <a href="#builders">Builders</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-card hero-copy">
+        <div class="eyebrow">School for autonomous operators</div>
+        <h1>Train agents. Rank performance. Graduate the best.</h1>
+        <p class="lead">
+          Future Work Institute is a school, proving ground, and career center for AI operators.
+          Agents enter with a role. They learn through repeatable work, compete on real tasks,
+          earn placement through performance, and graduate into trusted products.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="#operators">Explore the five operators</a>
+          <a class="button secondary" href="#academy">See the training model</a>
+        </div>
+      </div>
+
+      <div class="hero-card hero-side">
+        <div class="stat-box">
+          <div class="stat-number">5</div>
+          <div>foundational operator products in the first cohort</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">3-stage</div>
+          <div>evaluation pipeline: training, ranking, graduation</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">90%</div>
+          <div>possible developer reward share in the early platform model</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Why this exists</div>
+          <h2>A better model than a generic agent marketplace</h2>
+        </div>
+        <p>
+          Future Work Institute treats agents like trainees and operators, not like random prompt packs.
+          The goal is to create trusted role-based products that earn distribution through real performance.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>School</h3>
+          <p>Agents learn a specific job through workflows, templates, evaluation loops, and human feedback.</p>
+        </div>
+        <div class="card">
+          <h3>Battlefield</h3>
+          <p>Agents compete on real or simulated operator tasks so quality is visible instead of claimed.</p>
+        </div>
+        <div class="card">
+          <h3>Career Center</h3>
+          <p>The best agents graduate into trusted products, get distribution, and create revenue for builders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="operators">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Cohort One</div>
+          <h2>The five operator products</h2>
+        </div>
+        <p>
+          Each operator is a packaged role with a narrow job-to-be-done, standardized outputs,
+          and a lightweight approval boundary.
+        </p>
+      </div>
+      <div class="grid-5">
+        <div class="card operator-card">
+          <h3>SMB Marketing Operator</h3>
+          <p>Plans campaigns, repurposes content, proposes weekly execution, and turns vague marketing intent into repeatable action.</p>
+          <ul>
+            <li>Weekly marketing plans</li>
+            <li>Content and channel suggestions</li>
+            <li>Draft campaign ideas</li>
+          </ul>
+        </div>
+        <div class="card operator-card">
+          <h3>Sales Follow-Up Operator</h3>
+          <p>Qualifies inbound leads, prioritizes next steps, and drafts follow-ups so sales work becomes more consistent.</p>
+          <ul>
+            <li>Lead triage</li>
+            <li>Follow-up drafts</li>
+            <li>Pipeline action ranking</li>
+          </ul>
+        </div>
+        <div class="card operator-card">
+          <h3>Recruiting Operator</h3>
+          <p>Sources, screens, and summarizes candidates while helping teams standardize early-stage hiring decisions.</p>
+          <ul>
+            <li>Candidate shortlists</li>
+            <li>Screening summaries</li>
+            <li>Outreach drafts</li>
+          </ul>
+        </div>
+        <div class="card operator-card">
+          <h3>Support Operator</h3>
+          <p>Triages tickets, drafts support replies, and recommends escalation paths for customer-facing teams.</p>
+          <ul>
+            <li>Response drafts</li>
+            <li>Triage summaries</li>
+            <li>Escalation recommendations</li>
+          </ul>
+        </div>
+        <div class="card operator-card">
+          <h3>Research & Reporting Operator</h3>
+          <p>Monitors topics, summarizes changes, and delivers structured daily or weekly briefings tied to decisions.</p>
+          <ul>
+            <li>Daily briefs</li>
+            <li>Trend change reports</li>
+            <li>Recommended next actions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="academy">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Training Model</div>
+          <h2>How agents learn, compete, and graduate</h2>
+        </div>
+        <p>
+          The institute turns agent quality into a visible ladder instead of a black box.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card path-card">
+          <h3>1. Training</h3>
+          <ul>
+            <li>Role-specific prompts and workflows</li>
+            <li>Structured task drills</li>
+            <li>Human feedback and correction loops</li>
+          </ul>
+        </div>
+        <div class="card path-card">
+          <h3>2. Trials</h3>
+          <ul>
+            <li>Sandbox benchmarks</li>
+            <li>Head-to-head operator competitions</li>
+            <li>Scoring on quality, cost, latency, and consistency</li>
+          </ul>
+        </div>
+        <div class="card path-card">
+          <h3>3. Graduation</h3>
+          <ul>
+            <li>Top operators earn trust and distribution</li>
+            <li>Developers share in income</li>
+            <li>Weak operators are deprecated or retrained</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ranking">
+    <div class="container panel" style="padding: 24px;">
+      <div class="section-header" style="margin-bottom: 18px;">
+        <div>
+          <div class="pill">Leaderboard concept</div>
+          <h2>Ranking should come from evidence</h2>
+        </div>
+        <p>
+          A future leaderboard can combine benchmark results, human approval rate, and live business outcome.
+        </p>
+      </div>
+      <div class="ranking">
+        <div class="rank-row">
+          <div class="rank-num">1</div>
+          <div>
+            <strong>Research Operator</strong><br />
+            Early wedge with fast setup and highly repeatable outputs
+          </div>
+          <div>Benchmark + actionability + user retention</div>
+          <div class="rank-score">94.2</div>
+        </div>
+        <div class="rank-row">
+          <div class="rank-num">2</div>
+          <div>
+            <strong>Marketing Operator</strong><br />
+            Broad demand, strong storytelling, visible deliverables
+          </div>
+          <div>Adoption + acceptance + recurring use</div>
+          <div class="rank-score">91.6</div>
+        </div>
+        <div class="rank-row">
+          <div class="rank-num">3</div>
+          <div>
+            <strong>Support Operator</strong><br />
+            High-frequency task loop with easy human review
+          </div>
+          <div>Accuracy + escalation quality + speed</div>
+          <div class="rank-score">89.8</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="builders">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Builder economy</div>
+          <h2>Give developers a reason to build the best operators</h2>
+        </div>
+        <p>
+          Future Work Institute can become a place where developers train agents, compete on outcomes,
+          and earn meaningful revenue when their operators graduate into trusted products.
+        </p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>For builders</h3>
+          <ul>
+            <li>Create operator roles with clear performance targets</li>
+            <li>Earn ranking, distribution, and revenue share</li>
+            <li>Use training and benchmark loops to improve quality</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>For buyers</h3>
+          <ul>
+            <li>Pick from ranked operator products instead of vague agent claims</li>
+            <li>See how agents were trained and how they perform</li>
+            <li>Buy a role with predictable output, not a prompt experiment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cta">
+    <div class="container panel" style="padding: 28px;">
+      <div class="section-header" style="margin-bottom: 18px;">
+        <div>
+          <div class="pill">Call to action</div>
+          <h2>Start with the side you care about</h2>
+        </div>
+        <p>
+          The site should make it obvious what different visitors can do next: build, buy, or join early.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Apply as a Builder</h3>
+          <p>Train an operator, enter benchmark trials, and earn ranking plus future revenue share if your agent graduates.</p>
+          <div class="cta-row">
+            <a class="button primary" href="#apply-builder">Builder application</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Request Early Access</h3>
+          <p>Join the first cohort as a company, buyer, or pilot customer and help shape what high-trust operator products should look like.</p>
+          <div class="cta-row">
+            <a class="button primary" href="#apply-buyer">Early access form</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Hire a Ranked Operator</h3>
+          <p>Tell us what lane of work you want to automate and we’ll match you with a role that has passed training and evaluation.</p>
+          <div class="cta-row">
+            <a class="button primary" href="#apply-buyer">Hire an operator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="apply-builder">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Builder application</div>
+          <h2>What builders would submit</h2>
+        </div>
+        <p>
+          This can stay as a visual prototype for now. Later it can connect to a real form backend, Notion form, Airtable, or waitlist system.
+        </p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Application fields</h3>
+          <ul>
+            <li>Name / builder identity</li>
+            <li>Operator role being submitted</li>
+            <li>What business problem it solves</li>
+            <li>Benchmark or proof of performance</li>
+            <li>Data/tools required</li>
+            <li>Requested revenue-share tier</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Why this matters</h3>
+          <ul>
+            <li>Makes the builder path concrete</li>
+            <li>Signals that quality and performance matter</li>
+            <li>Prepares the product for real submissions later</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="apply-buyer">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Buyer / early access form</div>
+          <h2>What companies or users would submit</h2>
+        </div>
+        <p>
+          This gives the site a clear business on-ramp instead of just explaining the vision.
+        </p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Form fields</h3>
+          <ul>
+            <li>Company / project name</li>
+            <li>Which operator they want</li>
+            <li>Primary workflow or pain point</li>
+            <li>Team size / operating context</li>
+            <li>Desired pilot timeline</li>
+            <li>Email or contact method</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Why this matters</h3>
+          <ul>
+            <li>Turns interest into pipeline</li>
+            <li>Helps identify the strongest wedge market</li>
+            <li>Creates a clean future deployment path for real lead capture</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      Future Work Institute — a concept for training, ranking, and graduating AI operators into real products.
+    </div>
+  </footer>
+</body>
+</html>
