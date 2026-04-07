@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tom — Salon Front Desk Operator | Future Work Institute</title>
+  <meta name="description" content="Tom is a custom AI front-desk operator for salons that answers common questions, captures appointment intent, and hands customers to a human when needed." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://future-work-institute.com/tom-hair-salon-operator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Tom — Salon Front Desk Operator" />
+  <meta property="og:description" content="A narrow, useful salon operator for FAQs, appointment-intent intake, and human handoff." />
+  <meta property="og:url" content="https://future-work-institute.com/tom-hair-salon-operator.html" />
+  <meta property="og:site_name" content="Future Work Institute" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tom — Salon Front Desk Operator" />
+  <meta name="twitter:description" content="Custom salon front-desk operator for repetitive customer messages." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237c9cff'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' font-size='28' font-family='Arial' fill='white'%3EFW%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121933;
+      --panel-2: #182245;
+      --text: #eef2ff;
+      --muted: #a8b3cf;
+      --line: rgba(255,255,255,0.08);
+      --accent: #7c9cff;
+      --accent-2: #67e8f9;
+      --gold: #f5c56b;
+      --max: 1100px;
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(124,156,255,0.18), transparent 30%),
+        linear-gradient(180deg, #0a0f1f 0%, #0b1020 45%, #0e1530 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(11,16,32,0.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08111f;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .hero { padding: 72px 0 40px; }
+    .hero-card, .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+    }
+    .hero-card { padding: 40px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(124,156,255,0.12);
+      border: 1px solid rgba(124,156,255,0.26);
+      color: #dce5ff;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+    h1, h2, h3 { margin: 0 0 14px; line-height: 1.08; }
+    h1 { font-size: clamp(2.3rem, 5vw, 4.3rem); }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
+    h3 { font-size: 1.15rem; }
+    .lead { font-size: 1.1rem; color: var(--muted); max-width: 60ch; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+    .button.primary { background: linear-gradient(135deg, var(--accent), #9b8cff); color: white; }
+    .button.secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+    .section { padding: 30px 0; }
+    .section-header { margin-bottom: 22px; }
+    .section-header p { margin: 0; color: var(--muted); max-width: 64ch; }
+    .grid-2, .grid-3 { display: grid; gap: 18px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { padding: 22px; }
+    .card p, .card li { color: var(--muted); }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(103,232,249,0.1);
+      color: #b5f4ff;
+      border: 1px solid rgba(103,232,249,0.24);
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+    }
+    .chat-demo {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+    }
+    .bubble {
+      max-width: 80%;
+      padding: 12px 14px;
+      border-radius: 16px;
+      font-size: 0.96rem;
+    }
+    .bubble.user {
+      margin-left: auto;
+      background: rgba(124,156,255,0.18);
+      border: 1px solid rgba(124,156,255,0.28);
+    }
+    .bubble.bot {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer {
+      padding: 40px 0 60px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    @media (max-width: 900px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-inner { flex-direction: column; align-items: flex-start; }
+      .hero-card { padding: 28px; }
+      .bubble { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-badge">FW</span>
+        <span>Future Work Institute</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#what-it-does">What it does</a>
+        <a href="#demo">Demo</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="eyebrow">Operator product</div>
+        <h1>Tom — Salon Front Desk Operator</h1>
+        <p class="lead">
+          Tom is a narrow, useful AI operator for hair salons. He answers common questions, captures appointment intent, and hands customers to a human when needed.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="#contact">Request a custom operator like this</a>
+          <a class="button secondary" href="index.html">Back to homepage</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="what-it-does">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">What it does</div>
+          <h2>Built for repetitive customer messages</h2>
+        </div>
+        <p>
+          Tom is designed for a narrow front-desk workflow, not a fake all-purpose employee. That makes it easier to deploy, easier to trust, and easier to sell.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Answers common questions</h3>
+          <ul>
+            <li>Salon hours</li>
+            <li>Basic service questions</li>
+            <li>Location and business info</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Handles appointment-intent intake</h3>
+          <ul>
+            <li>Collects requested service</li>
+            <li>Collects preferred day or time</li>
+            <li>Captures the reason for the message</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Escalates safely</h3>
+          <ul>
+            <li>Hands off when the customer asks for a human</li>
+            <li>Does not fake booking confirmation</li>
+            <li>Does not invent policies or pricing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="demo">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Demo chat</div>
+          <h2>Example interaction</h2>
+        </div>
+        <p>
+          This is the kind of repetitive front-desk conversation Tom is meant to handle.
+        </p>
+      </div>
+      <div class="chat-demo">
+        <div class="bubble user">Do you have availability Tuesday?</div>
+        <div class="bubble bot">I can help with that. I can take your request for Tuesday and pass it to the salon team. What service are you looking for, and what time works best for you?</div>
+        <div class="bubble user">Haircut around 3 PM.</div>
+        <div class="bubble bot">Got it — haircut around 3 PM on Tuesday. If you'd like, I can pass that to the salon team now. Would you also like to talk to a human?</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="deliverables">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Deliverables</div>
+          <h2>What a buyer gets</h2>
+        </div>
+        <p>
+          This is sold as a concrete operator build for one narrow workflow.
+        </p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Included</h3>
+          <ul>
+            <li>One custom operator role</li>
+            <li>Business knowledge base setup</li>
+            <li>Prompt and behavior rules</li>
+            <li>Intake flow and handoff logic</li>
+            <li>Revision pass</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Good fit for</h3>
+          <ul>
+            <li>Hair salons</li>
+            <li>Barbershops</li>
+            <li>Beauty studios</li>
+            <li>Appointment-based local businesses</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="card">
+        <div class="pill">Custom operator build</div>
+        <h2>Want one like this for your business?</h2>
+        <p class="lead">
+          We can set up a custom front-desk or intake operator for one narrow workflow and get you to a working demo fast.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="index.html#apply-buyer">Apply for a custom operator build</a>
+          <a class="button secondary" href="index.html#operators">See more operators</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="margin-bottom:10px;">Future Work Institute — operator products and training for more reliable AI work.</div>
+      <div><a href="index.html">Return to Future Work Institute home</a></div>
+    </div>
+  </footer>
+</body>
+</html>
