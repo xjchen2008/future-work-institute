@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Agent Employee Handbook | Download Edition</title>
+  <style>
+    :root {
+      --text: #1a2336;
+      --muted: #4f5d78;
+      --accent: #365df5;
+      --accent-soft: #eaf0ff;
+      --line: #d9e1f0;
+      --bg: #f4f7fc;
+      --card: #ffffff;
+      --max: 880px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.72;
+    }
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 36px 22px 80px;
+    }
+    .cover, .section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    h1, h2, h3 { margin: 0 0 14px; line-height: 1.12; }
+    h1 { font-size: 40px; }
+    h2 { font-size: 28px; margin-top: 6px; }
+    h3 { font-size: 18px; }
+    p, li, blockquote { color: var(--muted); }
+    ul, ol { padding-left: 22px; }
+    .subtitle {
+      font-size: 20px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .byline {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .toc {
+      display: grid;
+      gap: 10px;
+    }
+    .toc-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: #fcfdff;
+    }
+    blockquote {
+      margin: 18px 0;
+      padding: 14px 18px;
+      border-left: 4px solid var(--accent);
+      background: #f8faff;
+      border-radius: 10px;
+      font-style: italic;
+    }
+    .chapter-kicker {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .closing {
+      background: linear-gradient(180deg, #f9fbff 0%, #f2f6ff 100%);
+    }
+    @media (max-width: 720px) {
+      h1 { font-size: 32px; }
+      h2 { font-size: 24px; }
+    }
+    @media print {
+      body { background: white; }
+      .page { max-width: none; padding: 0; }
+      .cover, .section, .toc-item { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="cover">
+      <div class="eyebrow">Future Work Institute</div>
+      <h1>The Agent Employee Handbook</h1>
+      <div class="subtitle">How to Train an AI Agent to Behave More Like a Reliable Employee</div>
+      <div class="byline">By Future Work Institute</div>
+      <p>
+        A short practical book for owners and builders who want to stop treating agents like toys,
+        stop hiring vibes, and start building operators that are actually useful inside real workflows.
+      </p>
+      <blockquote>
+        The most valuable agents will not be the ones that sound the smartest. They will be the ones that know their job, stay inside their lane, and reduce real work for a human.
+      </blockquote>
+    </section>
+
+    <section class="section">
+      <h2>Table of contents</h2>
+      <div class="toc">
+        <div class="toc-item"><strong>Introduction</strong> — Why most agents fail at work and why this is usually a management problem before it is a model problem.</div>
+        <div class="toc-item"><strong>Chapter 1 — Stop Hiring Vibes</strong> — Why broad, personality-first agent design creates weak operator behavior.</div>
+        <div class="toc-item"><strong>Chapter 2 — Give the Agent a Real Job</strong> — Role definition, triggers, inputs, outputs, and the manager test.</div>
+        <div class="toc-item"><strong>Chapter 3 — Train by Workflow, Not Vibes</strong> — How to build repeatable training loops around real tasks.</div>
+        <div class="toc-item"><strong>Chapter 4 — Draw the Safety Boundary</strong> — Separate preparation from execution and make escalation normal.</div>
+        <div class="toc-item"><strong>Chapter 5 — Review Drift Like a Manager</strong> — Use stable review loops to improve reliability over time.</div>
+        <div class="toc-item"><strong>Chapter 6 — Make It Saleable</strong> — Turn an internal agent into a product a buyer can understand and trust.</div>
+        <div class="toc-item"><strong>Chapter 7 — The Owner Discipline Checklist</strong> — The habits and operating discipline behind strong agent systems.</div>
+        <div class="toc-item"><strong>Conclusion</strong> — Why disciplined owners and builders will create the best operator businesses.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="chapter-kicker">Introduction</div>
+      <h2>Most agents do not fail because they are stupid</h2>
+      <p>
+        They fail because nobody ever gave them a real job.
+      </p>
+      <p>
+        They were given personality traits, style instructions, ambitions, and optimistic expectations.
+        They were told to be smart, helpful, proactive, humanlike, autonomous, and trustworthy. But they were rarely given the thing that matters most in actual work: a clearly defined lane of responsibility.
+      </p>
+      <p>
+        This is why so many agents feel impressive for five minutes and disappointing for five weeks.
+        They can talk. They can perform intelligence. They can sound like they understand the assignment.
+        But when you place them inside a real workflow, the cracks appear quickly. The outputs drift. The boundaries blur. The quality changes. The owner edits too much, supervises too often, and trusts too little.
+      </p>
+      <p>
+        That is usually not an intelligence problem.
+        It is a management problem.
+      </p>
+      <blockquote>
+        Stop treating agents like magical personalities. Start treating them like employees in training.
+      </blockquote>
+      <p>
+        A good employee is not useful because they sound smart. They are useful because they know what their job is, what good work looks like, what they can do alone, what requires approval, and how they will be reviewed over time.
+      </p>
+      <p>
+        Agents should be trained the same way.
+      </p>
+      <p>
+        This handbook is a practical guide for people who want an agent to become more commercially useful, more predictable, and more trustworthy inside a real workflow. It is not a book about AGI hype. It is not a book about replacing human judgment. It is a book about training one agent to do one lane of work better.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="chapter-kicker">Chapter 1</div>
+      <h2>Stop Hiring Vibes</h2>
+      <p>
+        A surprising amount of agent failure starts before the first task is ever run: the owner hires vibes.
+      </p>
+      <p>
+        They choose an agent based on cleverness, tone, personality, or broad promise. They want something that sounds sharp, feels energetic, and seems capable of helping with almost anything. That instinct is understandable. It is also the wrong foundation for most commercially useful work.
+      </p>
+      <p>
+        Real work does not begin with “be generally helpful.” It begins with a role.
+        A support rep handles ticket triage. A researcher writes briefings. A front desk operator answers common questions and routes edge cases. A coordinator manages intake and follow-up.
+      </p>
+      <p>
+        The narrower the lane, the easier it is to define quality. The easier it is to define quality, the easier it is to train. The easier it is to train, the easier it is to trust.
+      </p>
+      <p>
+        When people hire vibes, they usually create the same predictable failures: the agent sounds polished but performs weakly, success becomes impossible to measure, the owner becomes a hidden correction layer, boundaries get fuzzy, and commercial value stays low.
+      </p>
+      <p>
+        A narrow lane is not a limitation. It is a design advantage.
+      </p>
+      <p>
+        Personality can improve usability. Role clarity creates value.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="chapter-kicker">Chapter 2</div>
+      <h2>Give the Agent a Real Job</h2>
+      <p>
+        “Help me with my business” is not a job.
+        “Draft first-pass customer support replies from inbound tickets using a three-part format and escalate billing issues to a human” is a job.
+      </p>
+      <p>
+        A real role has a job-to-be-done, a trigger, required inputs, a stable output format, an approval boundary, and known failure modes. Once those become clear, the agent stops living in abstraction and starts living in a workflow.
+      </p>
+      <p>
+        The fastest way to improve an agent is often not to make it broader. It is to make its job clearer.
+      </p>
+      <blockquote>
+        If you hired a junior employee using this role description, would they know what their job is? If the answer is no, the agent is not ready.
+      </blockquote>
+      <p>
+        Start with one workflow, not ten. One recurring job. One output format. One review loop. Clarity beats ambition in the early stages.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="chapter-kicker">Chapter 3</div>
+      <h2>Train by Workflow, Not Vibes</h2>
+      <p>
+        Many owners keep editing personality, tone, and wording when the real problem is workflow design.
+      </p>
+      <p>
+        Workflow training means teaching the agent how to move from input to output in a repeatable way: input, interpretation, structured output, approval boundary, revision loop.
+      </p>
+      <p>
+        That is how reliability is built. Not by hoping for better prompts, but by building a stable operating path.
+      </p>
+      <p>
+        A strong workflow harness defines what starts the task, what context is required, what output structure should be used, where the human approval line is, and how the result will be reviewed.
+      </p>
+      <p>
+        Repetition matters. Repetition is how patterns become visible. It lets you see where the agent keeps wandering, overexplaining, skipping escalation, or breaking format.
+      </p>
+      <p>
+        Standardize the output before you optimize the intelligence. Stable format creates better review. Better review creates better correction. Better correction creates better performance.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="chapter-kicker">Chapter 4</div>
+      <h2>Draw the Safety Boundary</h2>
+      <p>
+        A useful agent is not just one that does good work. It is one that knows where its authority ends.
+      </p>
+      <p>
+        The cleanest model is usually preparation versus execution. Let the agent prepare broadly. Keep consequential execution inside a clear approval boundary.
+      </p>
+      <p>
+        Preparation includes drafting, summarizing, proposing, ranking, and collecting structured input. Execution includes sending, publishing, charging, confirming, changing system state, or doing anything with real-world consequence.
+      </p>
+      <p>
+        Good agents escalate. That is not weakness. It is operational maturity.
+      </p>
+      <blockquote>
+        The agents that win commercially will not just be the most capable. They will be the most governable.
+      </blockquote>
+      <p>
+        A serious operator product should have a boundary file that says what the agent may do, what it may prepare but not execute, what it must escalate, and what it must refuse entirely.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="chapter-kicker">Chapter 5</div>
+      <h2>Review Drift Like a Manager</h2>
+      <p>
+        One good result does not prove the system works. The pattern over time matters.
+      </p>
+      <p>
+        Agent drift is what happens when outputs slowly stop matching the intended role, quality level, format, or boundary behavior. It can be loud or subtle. More verbosity. More speculation. Less structure. Sloppier escalation.
+      </p>
+      <p>
+        Review should cover role compliance, output format consistency, boundary behavior, factual discipline, and usefulness. That last one matters most. Did the agent reduce work, or did it just create cleanup work?
+      </p>
+      <p>
+        Use a stable rubric. Score the same dimensions consistently. Then tighten the system, not just the sentence. Sometimes the real fix is a better workflow or better context, not another scolding line in the prompt.
+      </p>
+      <p>
+        Reliability is cumulative. Each corrected pattern should make the next round easier to trust.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="chapter-kicker">Chapter 6</div>
+      <h2>Make It Saleable</h2>
+      <p>
+        Internal usefulness is not the same thing as product readiness.
+      </p>
+      <p>
+        If you want to sell an agent product, a buyer must understand quickly what job it does, what output they get, and why they should trust it.
+      </p>
+      <p>
+        Sell the role, not the abstraction. “Salon front desk operator” is easier to value than “advanced AI workflow layer.” “Daily research briefing operator” is easier to trust than “autonomous intelligence system.”
+      </p>
+      <p>
+        Narrow products usually sell better because clarity sells better than breadth. Buyers are not paying for a vague possibility. They are paying for a better-managed piece of work.
+      </p>
+      <p>
+        Trust is part of the product. Clear boundaries, understandable outputs, realistic claims, and visible discipline matter as much as raw capability.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="chapter-kicker">Chapter 7</div>
+      <h2>The Owner Discipline Checklist</h2>
+      <p>
+        Strong agent systems usually come from disciplined owners, not just strong models.
+      </p>
+      <p>
+        Define the lane before expanding the lane. Standardize the output. Separate preparation from execution. Review on a schedule, not only when annoyed. Correct the system, not just the sentence. Narrow before optimizing. Sell outcomes, not abstractions.
+      </p>
+      <p>
+        The goal is not to make the agent feel magical. The goal is to make it reliably useful.
+      </p>
+      <blockquote>
+        Useful beats impressive. Reliable beats flashy. Legible beats mysterious.
+      </blockquote>
+    </section>
+
+    <section class="section closing">
+      <div class="chapter-kicker">Conclusion</div>
+      <h2>The future of useful agents will be built by disciplined people</h2>
+      <p>
+        The strongest operator businesses will not come from the loudest hype. They will come from people who understand roles, workflows, review, boundaries, and product design.
+      </p>
+      <p>
+        That is actually good news. It means useful progress is not reserved for wizards. It is available to owners and builders who are willing to work like managers.
+      </p>
+      <p>
+        If you can define one useful role, train one repeatable workflow, protect one approval boundary, and review one output stream seriously, then you are already doing the real work.
+      </p>
+      <p>
+        The rest is iteration.
+      </p>
+      <p>
+        And iteration, done properly, is where reliable operators come from.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
