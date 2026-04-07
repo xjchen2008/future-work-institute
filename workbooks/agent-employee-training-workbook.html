@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Employee Training Workbook | Future Work Institute</title>
+  <style>
+    :root {
+      --text: #162033;
+      --muted: #4d5b75;
+      --accent: #365df5;
+      --accent-soft: #e9efff;
+      --line: #d8dfef;
+      --bg: #f4f7fc;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .hero, .section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1, h2, h3 { margin: 0 0 12px; }
+    h1 { font-size: 36px; line-height: 1.08; }
+    h2 { font-size: 24px; margin-top: 4px; }
+    h3 { font-size: 18px; }
+    p, li { color: var(--muted); }
+    ul, ol { padding-left: 22px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .mini {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      background: #fcfdff;
+    }
+    .worksheet {
+      border: 1px dashed #a9b7da;
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 12px;
+      background: #fbfcff;
+    }
+    .line {
+      height: 1px;
+      background: var(--line);
+      margin: 18px 0;
+    }
+    .prompt {
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 10px;
+    }
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 30px; }
+    }
+    @media print {
+      body { background: white; }
+      .page { max-width: none; padding: 0; }
+      .hero, .section, .mini, .worksheet { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">Future Work Institute Workbook</div>
+      <h1>Agent Employee Training Workbook</h1>
+      <p>
+        A practical school guide for OpenClaw users who want to turn an agent into a more reliable employee.
+        This workbook is designed to help an owner train one agent through role clarity, workflow discipline,
+        behavior boundaries, and iterative improvement.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>What this workbook is for</h2>
+      <p>
+        Most agents are not failing because they lack personality. They fail because they lack a defined job,
+        a repeatable workflow, strong boundaries, and disciplined owner training. This workbook gives you a
+        method for changing that.
+      </p>
+      <div class="grid">
+        <div class="mini">
+          <h3>What you will produce</h3>
+          <ul>
+            <li>A clear role definition</li>
+            <li>A workflow training harness</li>
+            <li>A policy and boundary file</li>
+            <li>A reliability improvement loop</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>What you should expect</h3>
+          <ul>
+            <li>Better consistency</li>
+            <li>Clearer outputs</li>
+            <li>Fewer vague behaviors</li>
+            <li>A more useful agent in one specific lane of work</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Method 1 — Define the agent’s job clearly</h2>
+      <p>
+        Agents become more useful when they own a narrow lane of work. The first step is defining what job your agent has,
+        what output it must produce, and what it must not do.
+      </p>
+      <div class="worksheet">
+        <h3>Worksheet: Role definition</h3>
+        <div class="prompt">Agent name:</div>
+        <p>________________________________________</p>
+        <div class="prompt">What exact job should this agent own?</div>
+        <p>________________________________________</p>
+        <p>________________________________________</p>
+        <div class="prompt">What output should it produce repeatedly?</div>
+        <p>________________________________________</p>
+        <p>________________________________________</p>
+        <div class="prompt">What should this agent never do without approval?</div>
+        <p>________________________________________</p>
+        <p>________________________________________</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Method 2 — Train by workflow, not vibes</h2>
+      <p>
+        Many owners train agents by giving scattered personality instructions. That creates inconsistency. Instead,
+        train by workflow: input → reasoning pattern → output → approval boundary → revision loop.
+      </p>
+      <div class="mini">
+        <h3>Workflow harness template</h3>
+        <ol>
+          <li>Define the trigger or recurring task</li>
+          <li>Define the required context inputs</li>
+          <li>Define the output format</li>
+          <li>Define the approval step</li>
+          <li>Define the review and revision method</li>
+        </ol>
+      </div>
+      <div class="worksheet">
+        <h3>Worksheet: One workflow</h3>
+        <div class="prompt">What recurring workflow are you training?</div>
+        <p>________________________________________</p>
+        <div class="prompt">What inputs does the agent need every time?</div>
+        <p>________________________________________</p>
+        <div class="prompt">What format should the output follow?</div>
+        <p>________________________________________</p>
+        <div class="prompt">Where must the human approve?</div>
+        <p>________________________________________</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Method 3 — Audit behavior and drift</h2>
+      <p>
+        A useful agent is not just productive once. It should behave consistently over time. Owners need to review whether
+        the agent is drifting away from its intended job, tone, or safety boundaries.
+      </p>
+      <div class="grid">
+        <div class="mini">
+          <h3>Audit questions</h3>
+          <ul>
+            <li>Did the agent stay inside its role?</li>
+            <li>Did the output format remain consistent?</li>
+            <li>Did it respect approval boundaries?</li>
+            <li>Did it become more useful or more chaotic?</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Signs of drift</h3>
+          <ul>
+            <li>Talking too broadly</li>
+            <li>Changing tone unpredictably</li>
+            <li>Forgetting workflow format</li>
+            <li>Making unsafe assumptions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Method 4 — Improve reliability over time</h2>
+      <p>
+        Reliability comes from repeated correction and a stable training loop. Treat your agent like a worker in training,
+        not like a one-shot prompt machine.
+      </p>
+      <ol>
+        <li>Run one workflow repeatedly</li>
+        <li>Review outputs using the same rubric</li>
+        <li>Correct unclear instructions</li>
+        <li>Tighten the role boundary</li>
+        <li>Document the improved method</li>
+      </ol>
+      <div class="worksheet">
+        <h3>Weekly reliability review</h3>
+        <div class="prompt">What improved this week?</div>
+        <p>________________________________________</p>
+        <div class="prompt">What went wrong repeatedly?</div>
+        <p>________________________________________</p>
+        <div class="prompt">What one training change should happen next?</div>
+        <p>________________________________________</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Recommended file set for your agent</h2>
+      <ul>
+        <li><strong>role-definition.md</strong> — who the agent is and what job it owns</li>
+        <li><strong>workflow-harness.md</strong> — step-by-step recurring workflow format</li>
+        <li><strong>policy-boundaries.md</strong> — approvals, refusals, and prohibited actions</li>
+        <li><strong>weekly-review.md</strong> — audit notes and reliability improvements</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Final principle</h2>
+      <p>
+        The goal is not to create an agent that sounds impressive. The goal is to create an agent that behaves like a reliable employee inside a real workflow.
+      </p>
+      <p>
+        Future Work Institute exists to help agent owners do that systematically.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

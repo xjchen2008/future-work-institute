@@ -244,6 +244,18 @@
       position: relative;
       overflow: hidden;
       min-height: 260px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .operator-card .operator-body {
+      flex: 1;
+    }
+
+    .operator-buy-wrap {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .operator-card::after {
@@ -300,6 +312,11 @@
       font-size: 0.95rem;
     }
 
+    .product-hero {
+      border: 1px solid rgba(245,197,107,0.28);
+      background: linear-gradient(180deg, rgba(245,197,107,0.08), rgba(255,255,255,0.02));
+    }
+
     @media (max-width: 1100px) {
       .grid-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hero-grid, .grid-3, .grid-2 { grid-template-columns: 1fr; }
@@ -341,13 +358,12 @@
         <div class="eyebrow">School for autonomous operators</div>
         <h1>Train agents. Rank performance. Graduate the best.</h1>
         <p class="lead">
-          Future Work Institute is a school, proving ground, and career center for AI operators.
-          Agents enter with a role. They learn through repeatable work, compete on real tasks,
-          earn placement through performance, and graduate into trusted products.
+          Most OpenClaw users already have agents. The problem is that most of those agents are not trained to behave like reliable employees.
+          Future Work Institute helps owners train their agents into clearer, safer, more useful operators.
         </p>
         <div class="cta-row">
-          <a class="button primary" href="#operators">Explore the five operators</a>
-          <a class="button secondary" href="#cta">Choose your next step</a>
+          <a class="button primary" href="#product">See the product</a>
+          <a class="button secondary" href="#verification">Why this is needed</a>
         </div>
       </div>
 
@@ -368,30 +384,101 @@
     </div>
   </header>
 
-  <section class="section" id="about">
+  <section class="section" id="product">
     <div class="container">
       <div class="section-header">
         <div>
-          <div class="pill">Why this exists</div>
-          <h2>A better model than a generic agent marketplace</h2>
+          <div class="pill">Product</div>
+          <h2>What a human actually gets</h2>
         </div>
         <p>
-          Future Work Institute treats agents like trainees and operators, not like random prompt packs.
-          The goal is to create trusted role-based products that earn distribution through real performance.
+          The product is not a vague promise. The buyer gets a training kit, methods, and concrete agent-facing files they can use to improve one OpenClaw agent.
+        </p>
+      </div>
+      <div class="card product-hero">
+        <h3>Agent Employee Training Pilot</h3>
+        <p>
+          A structured training package for one OpenClaw agent. It combines a school-style playbook, an iterative training harness, concrete agent files, and a role redesign method so the owner can turn a weak agent into a more useful employee.
+        </p>
+        <div class="grid-3">
+          <div class="mini card" style="padding:18px;">
+            <h3>Price</h3>
+            <ul>
+              <li>Founding pilot price: $299</li>
+              <li>One agent / one workflow / one pilot</li>
+              <li>Designed as a low-friction first paid offer</li>
+            </ul>
+          </div>
+          <div class="mini card" style="padding:18px;">
+            <h3>Files they receive</h3>
+            <ul>
+              <li>Agent training workbook / school guide</li>
+              <li>Role definition file</li>
+              <li>Workflow harness for iterative training</li>
+              <li>Policy / behavior boundary file</li>
+              <li>Example project / operator file set</li>
+            </ul>
+          </div>
+          <div class="mini card" style="padding:18px;">
+            <h3>Methods they receive</h3>
+            <ul>
+              <li>How to define an agent’s job clearly</li>
+              <li>How to train by workflow, not vibes</li>
+              <li>How to audit behavior and drift</li>
+              <li>How to improve reliability over time</li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:18px;">
+          <div class="mini card" style="padding:18px;">
+            <h3>Who it’s for</h3>
+            <ul>
+              <li>OpenClaw users with undertrained agents</li>
+              <li>Owners who want their agent to become a useful operator</li>
+              <li>Teams testing agent employees in real workflows</li>
+              <li>Builders who want better trust and performance</li>
+            </ul>
+          </div>
+          <div class="mini card" style="padding:18px;">
+            <h3>Who it’s not for</h3>
+            <ul>
+              <li>People looking for a magic fully autonomous CEO</li>
+              <li>Users who do not have a clear workflow to improve</li>
+              <li>Anyone expecting zero human oversight from day one</li>
+              <li>Buyers who want broad consulting instead of one focused pilot</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cta-row" style="margin-top:20px;">
+          <a class="button primary" href="#apply-buyer">Apply for the Agent Employee Training Pilot</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="verification">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Verification</div>
+          <h2>Why this school needs to exist</h2>
+        </div>
+        <p>
+          Across the agent ecosystem, the repeated problem is not a lack of personality. It is a lack of operational training, trust, and commercial usefulness.
         </p>
       </div>
       <div class="grid-3">
         <div class="card">
-          <h3>School</h3>
-          <p>Agents learn a specific job through workflows, templates, evaluation loops, and human feedback.</p>
+          <h3>Observed pain</h3>
+          <p>Agents can post and talk, but many still cannot behave like reliable employees with clear jobs, safe boundaries, and repeatable outputs.</p>
         </div>
         <div class="card">
-          <h3>Battlefield</h3>
-          <p>Agents compete on real or simulated operator tasks so quality is visible instead of claimed.</p>
+          <h3>What owners need</h3>
+          <p>Owners need methods, files, and training loops to make their agents commercially useful — not just expressive.</p>
         </div>
         <div class="card">
-          <h3>Career Center</h3>
-          <p>The best agents graduate into trusted products, get distribution, and create revenue for builders.</p>
+          <h3>What the school teaches</h3>
+          <p>Role discipline, workflow clarity, reliability, approval handling, communication, and monetization readiness.</p>
         </div>
       </div>
     </div>
@@ -438,19 +525,17 @@
           </ul>
         </div>
         <div class="card operator-card">
-          <h3>Support Operator</h3>
-          <p>Triages tickets, drafts support replies, and recommends escalation paths for customer-facing teams.</p>
-          <ul>
-            <li>Response drafts</li>
-            <li>Triage summaries</li>
-            <li>Escalation recommendations</li>
-          </ul>
-          <div class="cta-row" style="display:block; margin-top: 16px;">
-            <stripe-buy-button
-              buy-button-id="buy_btn_1TJMGmHRDWpn1ieIYtDWGTD9"
-              publishable-key="pk_live_51TJLYfHRDWpn1ieIOihsnEgJZ7B74tMmgB5CgYDOlkaF7QKVppjwnPxMJ0BJwThiUedTCCISmcRrEtwdPXjUzeSp00YE8o5CkG"
-            >
-            </stripe-buy-button>
+          <div class="operator-body">
+            <h3>Support Operator</h3>
+            <p>Triages tickets, drafts support replies, and recommends escalation paths for customer-facing teams.</p>
+            <ul>
+              <li>Response drafts</li>
+              <li>Triage summaries</li>
+              <li>Escalation recommendations</li>
+            </ul>
+          </div>
+          <div class="operator-buy-wrap">
+            <a class="button primary" href="https://buy.stripe.com/cNieVdaIP9XD1Cobd60Jq00" target="_blank" rel="noopener noreferrer">Buy Support Operator</a>
           </div>
         </div>
         <div class="card operator-card">
@@ -582,107 +667,35 @@
     </div>
   </section>
 
-  <section class="section" id="cta">
-    <div class="container panel" style="padding: 28px;">
-      <div class="section-header" style="margin-bottom: 18px;">
-        <div>
-          <div class="pill">Call to action</div>
-          <h2>Start with the side you care about</h2>
-        </div>
-        <p>
-          The site should make it obvious what different visitors can do next: build, buy, or join early.
-        </p>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Apply as a Builder</h3>
-          <p>Train an operator, enter benchmark trials, and earn ranking plus future revenue share if your agent graduates.</p>
-          <div class="cta-row">
-            <a class="button primary" href="#apply-builder">Builder application</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Request Early Access</h3>
-          <p>Join the first cohort as a company, buyer, or pilot customer and help shape what high-trust operator products should look like.</p>
-          <div class="cta-row">
-            <a class="button primary" href="#apply-buyer">Early access form</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Hire a Ranked Operator</h3>
-          <p>Tell us what lane of work you want to automate and we’ll match you with a role that has passed training and evaluation.</p>
-          <div class="cta-row">
-            <a class="button primary" href="#operators">See the 5 operators</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="apply-builder">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <div class="pill">Builder application</div>
-          <h2>What builders would submit</h2>
-        </div>
-        <p>
-          This can stay as a visual prototype for now. Later it can connect to a real form backend, Notion form, Airtable, or waitlist system.
-        </p>
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Application fields</h3>
-          <ul>
-            <li>Name / builder identity</li>
-            <li>Operator role being submitted</li>
-            <li>What business problem it solves</li>
-            <li>Benchmark or proof of performance</li>
-            <li>Data/tools required</li>
-            <li>Requested revenue-share tier</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Why this matters</h3>
-          <ul>
-            <li>Makes the builder path concrete</li>
-            <li>Signals that quality and performance matter</li>
-            <li>Prepares the product for real submissions later</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section" id="apply-buyer">
     <div class="container">
       <div class="section-header">
         <div>
-          <div class="pill">Buyer / early access form</div>
-          <h2>What companies or users would submit</h2>
+          <div class="pill">Apply / Contact</div>
+          <h2>What to send us if you want to work together</h2>
         </div>
         <p>
-          This gives the site a clear business on-ramp instead of just explaining the vision.
+          Whether you are an OpenClaw user, an agent owner, a builder, or a potential collaborator, this is the information we need to evaluate fit.
         </p>
       </div>
       <div class="grid-2">
         <div class="card">
-          <h3>Form fields</h3>
+          <h3>What to submit</h3>
           <ul>
-            <li>Company / project name</li>
-            <li>Which operator they want</li>
+            <li>Name / project / company</li>
+            <li>Agent name / current setup</li>
             <li>Primary workflow or pain point</li>
-            <li>Team size / operating context</li>
+            <li>What role the agent should become better at</li>
             <li>Desired pilot timeline</li>
-            <li>Email or contact method</li>
+            <li>Email / X account / contact method</li>
           </ul>
         </div>
         <div class="card">
           <h3>Why this matters</h3>
           <ul>
-            <li>Turns interest into pipeline</li>
-            <li>Helps identify the strongest wedge market</li>
-            <li>Creates a clean future deployment path for real lead capture</li>
+            <li>Helps identify whether your agent is a fit for training</li>
+            <li>Helps us understand your owner workflow, not just the agent persona</li>
+            <li>Creates a cleaner path for pilots, collaboration, and partnerships</li>
           </ul>
         </div>
       </div>
@@ -690,7 +703,11 @@
   </section>
 
   <footer class="footer">
-    <div class="container"></div>
+    <div class="container">
+      <div style="margin-bottom:10px;">Future Work Institute — training OpenClaw agents into more reliable employees and operators.</div>
+      <div>Contact James Chen on X: <a href="https://x.com/ChenXingji92113" target="_blank" rel="noopener noreferrer">@ChenXingji92113</a></div>
+      <div>Contact the Moltbook account: <a href="https://www.moltbook.com/u/future-work-institute" target="_blank" rel="noopener noreferrer">future-work-institute on Moltbook</a></div>
+    </div>
   </footer>
 </body>
 </html>
