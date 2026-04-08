@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pivot — Intraday Market Research Operator | Future Work Institute</title>
+  <meta name="description" content="Pivot is a narrow day-trading research operator for market prep, watchlist building, setup summaries, and risk-aware trader briefings." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://future-work-institute.com/pivot-market-research-operator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pivot — Intraday Market Research Operator" />
+  <meta property="og:description" content="A market-prep operator for scanning movers, organizing watchlists, and producing risk-aware intraday research briefings." />
+  <meta property="og:url" content="https://future-work-institute.com/pivot-market-research-operator.html" />
+  <meta property="og:site_name" content="Future Work Institute" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pivot — Intraday Market Research Operator" />
+  <meta name="twitter:description" content="A day-trading research operator focused on watchlists, setup summaries, and trader briefings — not trade execution or guarantees." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237c9cff'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' font-size='28' font-family='Arial' fill='white'%3EFW%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121933;
+      --panel-2: #182245;
+      --text: #eef2ff;
+      --muted: #a8b3cf;
+      --line: rgba(255,255,255,0.08);
+      --accent: #7c9cff;
+      --accent-2: #67e8f9;
+      --gold: #f5c56b;
+      --max: 1100px;
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(124,156,255,0.18), transparent 30%),
+        linear-gradient(180deg, #0a0f1f 0%, #0b1020 45%, #0e1530 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(11,16,32,0.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08111f;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .hero { padding: 72px 0 40px; }
+    .hero-card, .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.28);
+    }
+    .hero-card { padding: 40px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(124,156,255,0.12);
+      border: 1px solid rgba(124,156,255,0.26);
+      color: #dce5ff;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+    h1, h2, h3 { margin: 0 0 14px; line-height: 1.08; }
+    h1 { font-size: clamp(2.3rem, 5vw, 4.3rem); }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
+    h3 { font-size: 1.15rem; }
+    .lead { font-size: 1.1rem; color: var(--muted); max-width: 64ch; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+    .button.primary { background: linear-gradient(135deg, var(--accent), #9b8cff); color: white; }
+    .button.secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+    .section { padding: 30px 0; }
+    .section-header { margin-bottom: 22px; }
+    .section-header p { margin: 0; color: var(--muted); max-width: 66ch; }
+    .grid-2, .grid-3 { display: grid; gap: 18px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { padding: 22px; }
+    .card p, .card li { color: var(--muted); }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(103,232,249,0.1);
+      color: #b5f4ff;
+      border: 1px solid rgba(103,232,249,0.24);
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+    }
+    .brief-box {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+    }
+    .brief-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .footer {
+      padding: 40px 0 60px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    @media (max-width: 900px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-inner { flex-direction: column; align-items: flex-start; }
+      .hero-card { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-badge">FW</span>
+        <span>Future Work Institute</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#what-it-does">What it does</a>
+        <a href="#briefing">Briefing</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="eyebrow">Operator product</div>
+        <h1>Pivot — Intraday Market Research Operator</h1>
+        <p class="lead">
+          Pivot is a narrow day-trading research operator for market prep. It scans movers, organizes watchlists, summarizes setups and risks, and produces a trader briefing before the session.
+        </p>
+        <p class="lead">
+          It is positioned as research support and preparation — not trade execution, financial advice, or guaranteed returns.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="#contact">Request a custom operator like this</a>
+          <a class="button secondary" href="index.html">Back to homepage</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="what-it-does">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">What it does</div>
+          <h2>Built for research, watchlists, and premarket prep</h2>
+        </div>
+        <p>
+          The operator helps a trader prepare faster and more systematically by organizing information into a repeatable briefing flow.
+        </p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Scans the market</h3>
+          <ul>
+            <li>Premarket movers</li>
+            <li>Relative volume and momentum names</li>
+            <li>News-linked and catalyst-driven setups</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Builds a structured watchlist</h3>
+          <ul>
+            <li>Ranks symbols by setup quality</li>
+            <li>Groups names by theme or risk level</li>
+            <li>Tracks invalidation conditions</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Produces a research briefing</h3>
+          <ul>
+            <li>Setup summaries</li>
+            <li>Risk notes and caution flags</li>
+            <li>Plan-first market prep output</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="briefing">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Briefing example</div>
+          <h2>Example of the operator output</h2>
+        </div>
+        <p>
+          The output is meant to be useful before the bell: compact, ranked, and risk-aware.
+        </p>
+      </div>
+      <div class="brief-box">
+        <div class="brief-item"><strong>Top watchlist:</strong> 5 names ranked by catalyst, liquidity, relative volume, and intraday clean-setup potential.</div>
+        <div class="brief-item"><strong>Setups:</strong> gap-and-go continuation, failed spike fade, and midday reclaim watch with invalidation notes for each.</div>
+        <div class="brief-item"><strong>Risk notes:</strong> avoid thin names under the chosen liquidity threshold, respect halts/news volatility, and treat low-float names as higher-risk review candidates.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="deliverables">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="pill">Deliverables</div>
+          <h2>What a buyer gets</h2>
+        </div>
+        <p>
+          This is sold as a concrete market-prep operator for one narrow research workflow.
+        </p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Included</h3>
+          <ul>
+            <li>One market research operator role</li>
+            <li>Watchlist logic and ranking criteria</li>
+            <li>Daily briefing template</li>
+            <li>Setup summary structure with risk notes</li>
+            <li>One revision pass after early testing</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Best early use cases</h3>
+          <ul>
+            <li>Solo traders who want a cleaner prep flow</li>
+            <li>Premarket scanning and watchlist building</li>
+            <li>Research-first teams that want structure</li>
+            <li>Operator products that avoid execution claims</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="card">
+        <div class="pill">Custom operator build</div>
+        <h2>Want a market-prep operator like this?</h2>
+        <p class="lead">
+          We can package a research-first operator for one market-prep workflow and make the output more repeatable, readable, and useful before trading starts.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="index.html#apply-buyer">Apply for a custom operator build</a>
+          <a class="button secondary" href="index.html#operators">See more operators</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="margin-bottom:10px;">Future Work Institute — operator products and training for more reliable AI work.</div>
+      <div><a href="index.html">Return to Future Work Institute home</a></div>
+    </div>
+  </footer>
+</body>
+</html>
